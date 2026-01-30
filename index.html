@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0f172a">
+    <title>Elite Sales Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        background: linear-gradient(to bottom right, #020617, #0f172a, #020617);
+        color: #f1f5f9;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(16, 185, 129, 0.1);
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        margin-bottom: 1.5rem;
+    }
+
+    .badge-text {
+        color: #34d399;
+        font-weight: 500;
+    }
+
+    .title {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        background: linear-gradient(to right, #f1f5f9, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+        color: #94a3b8;
+        line-height: 1.75;
+        margin-bottom: 3rem;
+    }
+
+    .card {
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(71, 85, 105, 0.5);
+        border-radius: 1rem;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        color: #f1f5f9;
+    }
+
+    .step {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .step-number {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    .step-1 { background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.3); color: #60a5fa; }
+    .step-2 { background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.3); color: #a78bfa; }
+    .step-3 { background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399; }
+
+    .step-content h3 {
+        font-weight: 600;
+        color: #e2e8f0;
+        margin-bottom: 0.25rem;
+    }
+
+    .step-content p {
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    .button {
+        width: 100%;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        font-weight: bold;
+        font-size: 1.125rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 1rem;
+    }
+
+    .button-primary {
+        background: linear-gradient(to right, #10b981, #3b82f6);
+        color: white;
+    }
+
+    .button-primary:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+    }
+
+    .button-primary:disabled {
+        background: #334155;
+        color: #64748b;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .button-secondary {
+        background: #334155;
+        color: white;
+    }
+
+    .button-secondary:hover {
+        background: #475569;
+    }
+
+    textarea {
+        width: 100%;
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid #334155;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        color: #f1f5f9;
+        font-family: 'Courier New', monospace;
+        font-size: 0.875rem;
+        resize: vertical;
+        margin-top: 1rem;
+    }
+
+    textarea:focus {
+        outline: none;
+        border-color: #10b981;
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+
+    textarea::placeholder {
+        color: #64748b;
+    }
+
+    .hint-box {
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .hint-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #60a5fa;
+        margin-bottom: 0.5rem;
+    }
+
+    .hint-list {
+        list-style: none;
+        color: #cbd5e1;
+        font-size: 0.875rem;
+    }
+
+    .hint-list li {
+        margin-bottom: 0.25rem;
+    }
+
+    .scenario-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .scenario-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+    }
+
+    .scenario-text {
+        font-size: 1.125rem;
+        color: #e2e8f0;
+        line-height: 1.75;
+    }
+
+    .score-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .score-card {
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(71, 85, 105, 0.5);
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+
+    .score-value {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .score-label {
+        color: #94a3b8;
+        font-size: 0.875rem;
+    }
+
+    .progress-bar {
+        background: rgba(15, 23, 42, 0.5);
+        border-radius: 9999px;
+        height: 0.5rem;
+        overflow: hidden;
+        margin-top: 1rem;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(to right, #10b981, #3b82f6);
+        transition: width 0.5s;
+    }
+
+    .principle-list {
+        max-height: 400px;
+        overflow-y: auto;
+        margin-top: 1rem;
+    }
+
+    .principle-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .principle-recalled {
+        background: rgba(16, 185, 129, 0.1);
+    }
+
+    .principle-missed {
+        background: rgba(15, 23, 42, 0.5);
+    }
+
+    .checkmark {
+        width: 1.25rem;
+        height: 1.25rem;
+        flex-shrink: 0;
+        margin-top: 0.125rem;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .overall-score {
+        font-size: 4rem;
+        font-weight: bold;
+        background: linear-gradient(to right, #34d399, #60a5fa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .quality-markers {
+        margin-top: 1rem;
+    }
+
+    .marker {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .marker-check {
+        color: #34d399;
+    }
+
+    .marker-x {
+        color: #475569;
+    }
+
+    .info-text {
+        text-align: center;
+        color: #94a3b8;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+        .title {
+            font-size: 2rem;
+        }
+        .subtitle {
+            font-size: 1rem;
+        }
+        .card {
+            padding: 1.5rem;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container">
+        <!-- Home Screen -->
+        <div id="home-screen">
+            <div class="text-center" style="padding-top: 3rem;">
+                <div class="badge">
+                    <span style="font-size: 1.25rem;">📈</span>
+                    <span class="badge-text"><span id="streak-count">0</span> Day Streak</span>
+                </div>
+
+```
+            <div class="badge" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2);">
+                <span style="font-size: 1.25rem;">🎯</span>
+                <span class="badge-text" style="color: #60a5fa;">
+                    <span id="sessions-count">0</span>/7 Sessions Today
+                </span>
+            </div>
+            
+            <h1 class="title">Elite Sales Training</h1>
+            <p class="subtitle">Stop reading. Start encoding. Master post-mortems before you make your first call.</p>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">How This Works</h2>
+            
+            <div class="step">
+                <div class="step-number step-1">1</div>
+                <div class="step-content">
+                    <h3>Active Recall</h3>
+                    <p>Write out principles from memory. No checking. Struggle = encoding.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number step-2">2</div>
+                <div class="step-content">
+                    <h3>Scenario Analysis</h3>
+                    <p>Get a random sales scenario. Write an elite-style post-mortem.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number step-3">3</div>
+                <div class="step-content">
+                    <h3>Framework Application</h3>
+                    <p>Answer the 4 core questions that separate elite from average thinking.</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="button button-primary" id="start-button" onclick="startPractice()">
+            Start Practice Session <span id="session-number">1</span>/7
+        </button>
+
+        <p class="info-text" id="sessions-info"></p>
+    </div>
+
+    <!-- Recall Screen -->
+    <div id="recall-screen" class="hidden">
+        <div style="margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; margin-bottom: 1rem; font-size: 0.875rem;">
+                <span>🧠</span>
+                <span>Step 1: Active Recall</span>
+            </div>
+            <h2 class="title" style="font-size: 2.5rem; margin-bottom: 0.75rem;">Write The Principles</h2>
+            <p style="color: #94a3b8; font-size: 1.125rem;">
+                From memory only. No checking. Write as many of the 20 core sales principles as you can remember.
+            </p>
+        </div>
+
+        <div class="card">
+            <textarea id="recall-text" rows="15" placeholder="Start writing...
+```
+
+Example:
+
+- Sales is decision-making, not persuasion
+- Control the frame before you explore the problem
+- Incentives > logic
+  …”></textarea>
+  </div>
+  
+  ```
+        <button class="button button-primary" id="recall-continue" onclick="continueToScenario()" disabled>
+            Continue to Scenario →
+        </button>
+    </div>
+  
+    <!-- Scenario Screen -->
+    <div id="scenario-screen" class="hidden">
+        <div style="margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; margin-bottom: 1rem; font-size: 0.875rem;">
+                <span>🎯</span>
+                <span>Step 2: Scenario Analysis</span>
+            </div>
+            <h2 class="title" style="font-size: 2.5rem;" id="scenario-title"></h2>
+        </div>
+  
+        <div class="card">
+            <div class="scenario-section">
+                <div class="scenario-label">Scenario</div>
+                <p class="scenario-text" id="scenario-text"></p>
+            </div>
+            
+            <div class="scenario-section">
+                <div class="scenario-label">Context</div>
+                <p style="color: #cbd5e1;" id="scenario-context"></p>
+            </div>
+  
+            <div class="hint-box">
+                <div class="hint-title">
+                    <span>💡</span>
+                    <span>Think About</span>
+                </div>
+                <ul class="hint-list" id="scenario-hints"></ul>
+            </div>
+        </div>
+  
+        <div class="card">
+            <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Write Your Elite Post-Mortem</h3>
+            <p style="color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.875rem;">
+                Analyze this scenario like a top 1% operator. Focus on decisions, leverage, incentives, and extractable principles.
+            </p>
+            
+            <textarea id="postmortem-text" rows="12" placeholder="Write your analysis...
+  ```
+
+What went wrong? Where did leverage shift? What incentive drove the outcome? What principle can you extract?
+
+Be specific. Be honest. Take responsibility.”></textarea>
+</div>
+
+```
+        <button class="button button-primary" id="scenario-continue" onclick="continueToFramework()" disabled>
+            Continue to Framework Questions →
+        </button>
+    </div>
+
+    <!-- Framework Screen -->
+    <div id="framework-screen" class="hidden">
+        <div style="margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; margin-bottom: 1rem; font-size: 0.875rem;">
+                <span>✓</span>
+                <span>Step 3: Framework Application</span>
+            </div>
+            <h2 class="title" style="font-size: 2.5rem; margin-bottom: 0.75rem;">Answer The Core Questions</h2>
+            <p style="color: #94a3b8; font-size: 1.125rem;">
+                These 4 questions separate elite thinking from average analysis.
+            </p>
+        </div>
+
+        <div id="framework-questions"></div>
+
+        <button class="button button-primary" id="framework-continue" onclick="showResults()" disabled>
+            Complete Practice →
+        </button>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="hidden">
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <div class="overall-score" id="overall-score">0%</div>
+            <div style="color: #94a3b8; font-size: 0.875rem; margin-top: 0.5rem;">Overall Performance</div>
+        </div>
+
+        <div class="score-grid">
+            <div class="score-card">
+                <h3 style="font-weight: bold; font-size: 1.125rem; margin-bottom: 1rem;">Recall Performance</h3>
+                <div class="score-value" style="color: #34d399;" id="recall-score">0/20</div>
+                <p class="score-label">Principles recalled from memory</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="recall-progress" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="score-card">
+                <h3 style="font-weight: bold; font-size: 1.125rem; margin-bottom: 1rem;">Post-Mortem Quality</h3>
+                <div class="score-value" style="color: #60a5fa;" id="pm-score">0/7</div>
+                <p class="score-label">Elite thinking markers detected</p>
+                <div class="quality-markers" id="quality-markers"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">What You Missed</h3>
+            <div class="principle-list" id="principle-list"></div>
+        </div>
+
+        <div class="card" style="background: linear-gradient(to right, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1)); border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-weight: bold; font-size: 1.125rem; margin-bottom: 0.75rem;">Next Steps</h3>
+            <ul style="color: #cbd5e1; line-height: 1.75;">
+                <li>• Review the principles you missed - these are your gaps</li>
+                <li>• Compare your post-mortem to the elite examples in your docs</li>
+                <li>• Tomorrow: Different scenario, same framework</li>
+                <li>• In 18-24 months of daily practice, you'll think differently than 99% of reps</li>
+            </ul>
+        </div>
+
+        <button class="button button-secondary" onclick="finishPractice()">
+            Finish
+        </button>
+    </div>
+</div>
+
+<script>
+    // Data
+    const SCENARIOS = [
+        {
+            title: "The Polite Brush-Off",
+            scenario: "Prospect says after demo: 'This looks great, we'll discuss internally and get back to you next month.'",
+            context: "Mid-market SaaS deal. Good engagement during demo. CFO and VP Sales on the call.",
+            hints: ["What decision is being deferred?", "What risk are they avoiding?", "Where did you lose control?"]
+        },
+        {
+            title: "Feature Focus Trap",
+            scenario: "Prospect keeps asking detailed questions about specific features but won't commit to next steps.",
+            context: "Enterprise deal. You've answered 15+ feature questions. They say 'very thorough, thanks.'",
+            hints: ["What are they really evaluating?", "Why are features safer than decisions?", "What belief hasn't shifted?"]
+        },
+        {
+            title: "The Budget Excuse",
+            scenario: "Prospect: 'We love this but don't have budget until Q3.'",
+            context: "They acknowledged the problem is costing them $50k/month. Current quarter ends in 6 weeks.",
+            hints: ["Is budget the real constraint?", "What's the cost of waiting?", "Who benefits from delay?"]
+        },
+        {
+            title: "Competitor Comparison",
+            scenario: "Prospect: 'We're also looking at [Competitor]. Can you send us a comparison?'",
+            context: "They initiated contact with you. Discovery call went well. They mentioned competitor casually at the end.",
+            hints: ["What does comparison-seeking signal?", "Who controls the evaluation criteria?", "What frame are you accepting?"]
+        },
+        {
+            title: "The Silent Champion",
+            scenario: "Your internal champion stops responding after you sent the proposal.",
+            context: "They were enthusiastic, introduced you to their team, helped with discovery. 3 follow-ups, no response.",
+            hints: ["What changed after the proposal?", "What risk became visible?", "What support did they lack?"]
+        },
+        {
+            title: "Discount Fixation",
+            scenario: "Prospect: 'If you can do 30% off, we'll sign this week.'",
+            context: "They've been engaged for 3 weeks. Deal size is $80k annual. They have authority to buy.",
+            hints: ["What problem does the discount solve?", "What do they need internally?", "What alternative could you offer?"]
+        },
+        {
+            title: "The Procurement Handoff",
+            scenario: "Decision-maker: 'I'm sold. Just need to run it through procurement.'",
+            context: "They verbally committed. Seemed confident. Introduced you to procurement via email, no call scheduled.",
+            hints: ["Is procurement a process or a veto?", "What could kill this in procurement?", "What should you have anchored?"]
+        },
+        {
+            title: "Strong Close, Fast Ghost",
+            scenario: "Prospect was extremely engaged, asked great questions, agreed to next steps. Then disappeared.",
+            context: "They said 'This is exactly what we need' and booked a follow-up. Didn't show up. Won't reschedule.",
+            hints: ["What shifted between enthusiasm and silence?", "What burden did you create?", "What commitment was avoided?"]
+        },
+        {
+            title: "The Reference Request",
+            scenario: "Prospect: 'Can you connect us with 3 customers in our industry before we move forward?'",
+            context: "You've done 4 calls. They know the product well. This is the first time they've mentioned references.",
+            hints: ["What decision are they avoiding?", "What does this delay?", "What haven't you de-risked?"]
+        },
+        {
+            title: "Implementation Concerns",
+            scenario: "Prospect: 'Our team is already stretched thin. Implementation seems complex.'",
+            context: "You walked through implementation. It's 2-3 weeks with your team doing most of it. They still seem hesitant.",
+            hints: ["Is complexity the real objection?", "Who owns the implementation?", "What exposure are they seeing?"]
+        }
+    ];
+
+    const PRINCIPLES = [
+        "Sales is decision-making, not persuasion",
+        "Control the frame before you explore the problem",
+        "Incentives > logic",
+        "Discomfort is a signal, not a failure",
+        "Silence is information",
+        "Objections are signals of misalignment, not barriers",
+        "Price resistance means value wasn't anchored",
+        "Inaction is always a competing option",
+        "Disqualification creates leverage",
+        "Precision beats enthusiasm",
+        "You don't sell products — you sell risk reduction",
+        "The real buyer is the one who owns the downside",
+        "Features are downstream of belief",
+        "The best questions narrow, they don't open",
+        "Authority is calm, not loud",
+        "Timing beats technique",
+        "You should feel neutral about the outcome",
+        "Every call should end with a clear next decision",
+        "Elite sales feels slower to the rep, clearer to the buyer",
+        "Sales mastery is invisible"
+    ];
+
+    const FRAMEWORK_QUESTIONS = [
+        {
+            question: "What was the REAL decision being made?",
+            hint: "Not what they said - what they were actually choosing between"
+        },
+        {
+            question: "Where did leverage shift?",
+            hint: "The exact moment control moved away from you or toward you"
+        },
+        {
+            question: "What incentive dominated?",
+            hint: "What did the buyer personally gain or avoid by this action?"
+        },
+        {
+            question: "What reusable principle emerged?",
+            hint: "What rule can you extract that applies beyond this scenario?"
+        }
+    ];
+
+    // State
+    let currentScenario = null;
+    let recalledText = '';
+    let postMortemText = '';
+    let frameworkAnswers = [];
+
+    // Storage helpers
+    function getStreak() {
+        const data = localStorage.getItem('sales_training_streak');
+        return data ? JSON.parse(data) : { streak: 0, lastDate: null };
+    }
+
+    function getSessions() {
+        const data = localStorage.getItem('sales_training_today');
+        const today = new Date().toDateString();
+        if (data) {
+            const parsed = JSON.parse(data);
+            if (parsed.date === today) {
+                return parsed.sessions || 0;
+            }
+        }
+        return 0;
+    }
+
+    function saveProgress() {
+        const today = new Date().toDateString();
+        const currentSessions = getSessions();
+        const newSessions = currentSessions + 1;
+        
+        // Update streak on first session of day
+        if (currentSessions === 0) {
+            const streakData = getStreak();
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            
+            let newStreak = 1;
+            if (streakData.lastDate === yesterday.toDateString()) {
+                newStreak = streakData.streak + 1;
+            } else if (streakData.lastDate === today) {
+                newStreak = streakData.streak;
+            }
+            
+            localStorage.setItem('sales_training_streak', JSON.stringify({
+                streak: newStreak,
+                lastDate: today
+            }));
+        }
+        
+        localStorage.setItem('sales_training_today', JSON.stringify({
+            date: today,
+            sessions: newSessions
+        }));
+        
+        updateHomeDisplay();
+    }
+
+    function updateHomeDisplay() {
+        const streak = getStreak().streak;
+        const sessions = getSessions();
+        
+        document.getElementById('streak-count').textContent = streak;
+        document.getElementById('sessions-count').textContent = sessions;
+        document.getElementById('session-number').textContent = sessions + 1;
+        
+        const startButton = document.getElementById('start-button');
+        const infoText = document.getElementById('sessions-info');
+        
+        if (sessions >= 7) {
+            startButton.disabled = true;
+            startButton.textContent = '✓ Daily Limit Reached - Come Back Tomorrow';
+            infoText.textContent = "You've hit your daily limit. Quality over quantity. Rest and come back tomorrow.";
+        } else {
+            startButton.disabled = false;
+            startButton.innerHTML = `Start Practice Session ${sessions + 1}/7`;
+            if (sessions > 0) {
+                infoText.textContent = `${7 - sessions} sessions remaining today. Keep the momentum going.`;
+            } else {
+                infoText.textContent = '';
+            }
+        }
+    }
+
+    // Navigation
+    function showScreen(screenId) {
+        ['home-screen', 'recall-screen', 'scenario-screen', 'framework-screen', 'results-screen'].forEach(id => {
+            document.getElementById(id).classList.add('hidden');
+        });
+        document.getElementById(screenId).classList.remove('hidden');
+        window.scrollTo(0, 0);
+    }
+
+    function startPractice() {
+        currentScenario = SCENARIOS[Math.floor(Math.random() * SCENARIOS.length)];
+        recalledText = '';
+        postMortemText = '';
+        frameworkAnswers = [];
+        
+        document.getElementById('recall-text').value = '';
+        showScreen('recall-screen');
+    }
+
+    function continueToScenario() {
+        recalledText = document.getElementById('recall-text').value;
+        
+        document.getElementById('scenario-title').textContent = currentScenario.title;
+        document.getElementById('scenario-text').textContent = currentScenario.scenario;
+        document.getElementById('scenario-context').textContent = currentScenario.context;
+        
+        const hintsList = document.getElementById('scenario-hints');
+        hintsList.innerHTML = currentScenario.hints.map(h => `<li>• ${h}</li>`).join('');
+        
+        document.getElementById('postmortem-text').value = '';
+        showScreen('scenario-screen');
+    }
+
+    function continueToFramework() {
+        postMortemText = document.getElementById('postmortem-text').value;
+        
+        const container = document.getElementById('framework-questions');
+        container.innerHTML = FRAMEWORK_QUESTIONS.map((q, i) => `
+            <div class="card">
+                <h3 style="font-weight: bold; font-size: 1.125rem; margin-bottom: 0.5rem;">${q.question}</h3>
+                <p style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 1rem;">${q.hint}</p>
+                <textarea id="framework-${i}" rows="5" placeholder="Your answer..." oninput="checkFrameworkComplete()"></textarea>
+            </div>
+        `).join('');
+        
+        showScreen('framework-screen');
+    }
+
+    function showResults() {
+        frameworkAnswers = FRAMEWORK_QUESTIONS.map((_, i) => 
+            document.getElementById(`framework-${i}`).value
+        );
+        
+        const recallScore = evaluateRecall();
+        const pmAnalysis = analyzePostMortem();
+        const overallScore = Math.round((recallScore.percentage + (pmAnalysis.totalScore / 7) * 100) / 2);
+        
+        document.getElementById('overall-score').textContent = overallScore + '%';
+        document.getElementById('recall-score').textContent = `${recallScore.count}/20`;
+        document.getElementById('recall-progress').style.width = recallScore.percentage + '%';
+        document.getElementById('pm-score').textContent = `${pmAnalysis.totalScore}/7`;
+        
+        const markers = document.getElementById('quality-markers');
+        markers.innerHTML = Object.entries(pmAnalysis.scores).map(([key, value]) => `
+            <div class="marker">
+                <span class="${value ? 'marker-check' : 'marker-x'}">${value ? '✓' : '✗'}</span>
+                <span style="color: ${value ? '#cbd5e1' : '#475569'}">
+                    ${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                </span>
+            </div>
+        `).join('');
+        
+        const principleList = document.getElementById('principle-list');
+        principleList.innerHTML = PRINCIPLES.map(p => {
+            const recalled = recalledText.toLowerCase().includes(p.toLowerCase().substring(0, 20));
+            return `
+                <div class="principle-item ${recalled ? 'principle-recalled' : 'principle-missed'}">
+                    <span class="checkmark">${recalled ? '✓' : '✗'}</span>
+                    <span style="color: ${recalled ? '#e2e8f0' : '#94a3b8'}">${p}</span>
+                </div>
+            `;
+        }).join('');
+        
+        saveProgress();
+        showScreen('results-screen');
+    }
+
+    function finishPractice() {
+        showScreen('home-screen');
+        updateHomeDisplay();
+    }
+
+    function evaluateRecall() {
+        const recalled = recalledText.toLowerCase();
+        const matches = PRINCIPLES.filter(p => 
+            recalled.includes(p.toLowerCase().substring(0, 20))
+        ).length;
+        return {
+            count: matches,
+            percentage: Math.round((matches / PRINCIPLES.length) * 100)
+        };
+    }
+
+    function analyzePostMortem() {
+        const text = postMortemText.toLowerCase();
+        const scores = {
+            hasRealDecision: text.includes('decision') || text.includes('choosing'),
+            hasLeverage: text.includes('leverage') || text.includes('control') || text.includes('power'),
+            hasIncentive: text.includes('incentive') || text.includes('personally') || text.includes('risk'),
+            hasPrinciple: text.includes('principle') || text.includes('rule') || text.includes('next time'),
+            avoidsVague: !text.includes('pretty well') && !text.includes('seemed') && !text.includes('probably'),
+            ownsFailure: text.includes('i failed') || text.includes('i lost') || text.includes('i should'),
+            isPrecise: text.split(' ').length > 50
+        };
+        
+        const totalScore = Object.values(scores).filter(Boolean).length;
+        return { scores, totalScore };
+    }
+
+    // Input validation
+    document.getElementById('recall-text').addEventListener('input', function() {
+        document.getElementById('recall-continue').disabled = this.value.trim().length < 50;
+    });
+
+    document.getElementById('postmortem-text').addEventListener('input', function() {
+        document.getElementById('scenario-continue').disabled = this.value.trim().length < 100;
+    });
+
+    function checkFrameworkComplete() {
+        const allFilled = FRAMEWORK_QUESTIONS.every((_, i) => {
+            const val = document.getElementById(`framework-${i}`).value.trim();
+            return val.length >= 20;
+        });
+        document.getElementById('framework-continue').disabled = !allFilled;
+    }
+
+    // Initialize
+    updateHomeDisplay();
+</script>
+```
+
+</body>
+</html>
